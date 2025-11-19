@@ -1,0 +1,39 @@
+/* Small screen/viewport overrides and chart screen niceties */
+
+/* Make the left area a bit larger so the data container is bigger */
+.sidebar {
+  width: 36%; /* more room for data */
+  min-width: 320px;
+}
+
+.chart-panel {
+  width: 66%; /* match the left width change */
+}
+
+/* larger current data area */
+.sidebar {
+  grid-template-rows: auto auto 2fr; /* make the Current Data area larger */
+}
+
+/* reposition top-right controls for the new screen */
+.chart-top-right-controls {
+  position: absolute;
+  top: 10px;
+  right: 18px;
+  z-index: 12;
+}
+
+#pie-chart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* Keep pie large so details are visible */
+#pie-canvas {
+  width: 92%;
+  height: 92%;
+  max-width: 92%;
+  max-height: 92%;
+}
