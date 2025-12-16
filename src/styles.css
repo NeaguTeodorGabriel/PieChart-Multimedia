@@ -12,13 +12,15 @@
 }
 
 /* Main styles */
-html, body {
+html,
+body {
     height: 100%;
-    overflow: hidden; /* disable page scrolling */
+    overflow: hidden;
+    /* disable page scrolling */
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Nunito', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     margin: 0;
     padding: 0;
@@ -34,10 +36,11 @@ body {
 }
 
 .sidebar {
-    width: 30%;
+    width: 25%;
     min-width: 260px;
     height: 100%;
-    overflow: hidden; /* no scroll */
+    overflow: hidden;
+    /* no scroll */
     /* show the original purple gradient (from body) on the left panel */
     background: transparent;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
@@ -51,7 +54,7 @@ body {
 /* header in the purple sidebar should be visible */
 .sidebar .header h1 {
     color: #fff;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .sidebar-content {
@@ -59,18 +62,20 @@ body {
     flex-direction: column;
     gap: 18px;
     height: 100%;
-    overflow: hidden; /* left content will not scroll */
+    overflow: hidden;
+    /* left content will not scroll */
 }
 
 .chart-panel {
-    width: 70%;
+    width: 75%;
     height: 100%;
     display: flex;
     align-items: stretch;
     justify-content: stretch;
-    padding: 0; /* remove gaps */
+    padding: 0;
+    /* remove gaps */
     /* subtle grey border between the left sidebar and right chart */
-    border-left: 1px solid rgba(0,0,0,0.12);
+    border-left: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 h1 {
@@ -82,13 +87,15 @@ h1 {
 }
 
 /* Component styles */
-.input-section, .data-section {
+.input-section,
+.data-section {
     margin-bottom: 40px;
     padding: 20px;
     background-color: #f8f9fa;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: none; /* disable animations per user request */
+    transition: none;
+    /* disable animations per user request */
 }
 
 /* chart section should not look like a card - make it edge-to-edge */
@@ -101,7 +108,8 @@ h1 {
     height: 100%;
 }
 
-.input-section:hover, .data-section:hover {
+.input-section:hover,
+.data-section:hover {
     /* disabled hover animation — user wants more stable layout */
     transform: none;
     box-shadow: none;
@@ -120,9 +128,15 @@ h2 {
     margin-bottom: 20px;
     position: relative;
 }
+
 /* Make left form more compact */
-.sidebar .form-group { margin-bottom: 12px; }
-.add-btn { width: 100%; }
+.sidebar .form-group {
+    margin-bottom: 12px;
+}
+
+.add-btn {
+    width: 100%;
+}
 
 label {
     display: block;
@@ -131,7 +145,9 @@ label {
     color: #4a4a4a;
 }
 
-input[type="text"], input[type="number"], input[type="color"] {
+input[type="text"],
+input[type="number"],
+input[type="color"] {
     width: 100%;
     padding: 12px 15px;
     border: 2px solid #e1e5e9;
@@ -141,7 +157,8 @@ input[type="text"], input[type="number"], input[type="color"] {
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-input[type="text"]:focus, input[type="number"]:focus {
+input[type="text"]:focus,
+input[type="number"]:focus {
     outline: none;
     border-color: #667eea;
     box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
@@ -185,13 +202,16 @@ input[type="color"] {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    overflow: hidden; /* hide overflow; list handles scroll */
+    overflow: hidden;
+    /* hide overflow; list handles scroll */
 }
 
 #data-list {
-    flex: 1 1 auto; /* take available space and scroll when needed */
+    flex: 1 1 auto;
+    /* take available space and scroll when needed */
     overflow-y: auto;
-    padding-right: 8px; /* small space for scrollbar */
+    padding-right: 8px;
+    /* small space for scrollbar */
 }
 
 #data-list li {
@@ -203,7 +223,8 @@ input[type="color"] {
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: none; /* disable animation */
+    transition: none;
+    /* disable animation */
 }
 
 #data-list li:hover {
@@ -233,9 +254,11 @@ input[type="color"] {
     display: block;
     width: 100%;
     height: 100%;
-    padding: 0; /* ensure the pie touches container edges */
+    padding: 0;
+    /* ensure the pie touches container edges */
     border: none;
-    background: transparent; /* allow full bleed of canvas */
+    background: transparent;
+    /* allow full bleed of canvas */
     position: relative;
     overflow: hidden;
 }
@@ -272,14 +295,16 @@ svg {
     max-width: none;
     max-height: none;
     touch-action: none;
-    display: block; /* avoid inline spacing */
-    margin: 0; /* zero margins */
+    display: block;
+    /* avoid inline spacing */
+    margin: 0;
+    /* zero margins */
 }
 
 #pie-tooltip {
     position: fixed;
     z-index: 9999;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0, 0, 0, 0.8);
     color: #fff;
     font-size: 13px;
     padding: 6px 10px;
@@ -304,16 +329,20 @@ svg {
         font-size: 2em;
     }
 
-    .input-section, .data-section, .chart-section {
+    .input-section,
+    .data-section,
+    .chart-section {
         padding: 15px;
     }
 
-/* make left cards fit without scrolling */
-#data-list {
-    flex: 1 1 auto; /* take available vertical space inside .data-section */
-    overflow-y: auto; /* allow scrolling through current data */
-    padding-right: 8px;
-}
+    /* make left cards fit without scrolling */
+    #data-list {
+        flex: 1 1 auto;
+        /* take available vertical space inside .data-section */
+        overflow-y: auto;
+        /* allow scrolling through current data */
+        padding-right: 8px;
+    }
 
     #data-list li {
         flex-direction: column;
@@ -334,7 +363,8 @@ svg {
         font-size: 1.2em;
     }
 
-    input[type="text"], input[type="number"] {
+    input[type="text"],
+    input[type="number"] {
         font-size: 14px;
     }
 
@@ -357,7 +387,9 @@ svg {
     gap: 12px;
 }
 
-.edit-btn, .cancel-btn, .remove-btn {
+.edit-btn,
+.cancel-btn,
+.remove-btn {
     margin-left: 6px;
     border: none;
     background: #fff;
@@ -365,7 +397,7 @@ svg {
     padding: 6px 10px;
     border-radius: 6px;
     cursor: pointer;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .edit-value-input {
@@ -402,15 +434,56 @@ svg {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
-#download-icon:hover { transform: none; }
+
+#download-icon:hover {
+    transform: none;
+}
+
+/* Audio button styles */
+#audio-icon {
+    background: transparent;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#audio-icon:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#audio-icon.speaking {
+    animation: pulse-audio 1s ease-in-out infinite;
+    background: rgba(102, 126, 234, 0.3);
+}
+
+@keyframes pulse-audio {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
 
 .download-menu {
     position: absolute;
     top: 40px;
     right: 0px;
-    background: rgba(255,255,255,0.98);
-    border: 1px solid rgba(0,0,0,0.06);
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid rgba(0, 0, 0, 0.06);
     padding: 10px;
     border-radius: 8px;
     display: none;
@@ -418,38 +491,88 @@ svg {
     gap: 8px;
 }
 
-.download-row { font-size: 14px; }
+.download-row {
+    font-size: 14px;
+}
 
-.download-menu button { margin-left: 8px; }
+.download-menu button {
+    margin-left: 8px;
+}
 
-.download-menu.show { display: flex; }
+.download-menu.show {
+    display: flex;
+}
 
 /* overlay modal for export options */
 .download-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     z-index: 99999;
     display: none;
     align-items: center;
     justify-content: center;
 }
-.download-overlay[aria-hidden="false"], .download-overlay.show { display: flex; }
+
+.download-overlay[aria-hidden="false"],
+.download-overlay.show {
+    display: flex;
+}
+
 .download-panel {
     background: #111;
     color: #fff;
     padding: 22px;
     border-radius: 10px;
     min-width: 320px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
 }
-.download-panel h3 { margin: 0 0 12px 0; }
-.download-panel .row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
-.download-panel .row label { min-width: 120px; color: #fff; }
-.download-panel .actions { display: flex; justify-content: flex-end; }
-.download-close { position: absolute; right: 24px; top: 24px; background: transparent; color: #fff; border: none; font-size: 18px; }
-.download-panel input[type="number"] { padding: 8px; border-radius: 6px; border: none; width: 110px; }
-.download-panel button#export-download { background: linear-gradient(45deg, #667eea, #764ba2); color: #fff; padding: 8px 14px; border-radius: 6px; border: none; }
+
+.download-panel h3 {
+    margin: 0 0 12px 0;
+}
+
+.download-panel .row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.download-panel .row label {
+    min-width: 120px;
+    color: #fff;
+}
+
+.download-panel .actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.download-close {
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    background: transparent;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+}
+
+.download-panel input[type="number"] {
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    width: 110px;
+}
+
+.download-panel button#export-download {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: none;
+}
 
 .download-menu button.active {
     background: linear-gradient(45deg, #667eea, #764ba2);

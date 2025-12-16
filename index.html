@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pie Chart Creator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="src/styles.css">
     <!-- Screen-specific rules; helps keep the chart layout/overrides readable -->
     <link rel="stylesheet" href="src/components/screen/styles/screen.css">
 </head>
+
 <body>
     <div class="app">
         <aside class="sidebar">
@@ -15,74 +20,76 @@
                 <h1>Pie Chart Creator</h1>
             </header>
             <div class="sidebar-content">
-            <div class="input-section">
-            <h2>Add Pie Chart Data</h2>
-            <form id="pie-form">
-                <div class="form-group">
-                    <label for="label">Label:</label>
-                    <input type="text" id="label" placeholder="e.g., Apples" required>
+                <div class="input-section">
+                    <h2>Add Pie Chart Data</h2>
+                    <form id="pie-form">
+                        <div class="form-group">
+                            <label for="label">Label:</label>
+                            <input type="text" id="label" placeholder="e.g., Apples" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="value">Value:</label>
+                            <input type="number" id="value" placeholder="e.g., 30" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="color">Color:</label>
+                            <input type="color" id="color" value="#ff0000">
+                        </div>
+                        <button type="submit" class="add-btn">Add Slice</button>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label for="value">Value:</label>
-                    <input type="number" id="value" placeholder="e.g., 30" min="0" required>
+                <div class="data-section">
+                    <h2>Current Data</h2>
+                    <ul id="data-list">
+                        <!-- Data items will be added here -->
+                    </ul>
                 </div>
-                <div class="form-group">
-                    <label for="color">Color:</label>
-                    <input type="color" id="color" value="#ff0000">
-                </div>
-                <button type="submit" class="add-btn">Add Slice</button>
-            </form>
-            </div>
-            <div class="data-section">
-            <h2>Current Data</h2>
-            <ul id="data-list">
-                <!-- Data items will be added here -->
-            </ul>
-            </div>
             </div>
         </aside>
         <main class="chart-panel">
             <div class="chart-section">
-                    <!-- Download control moved to `chart-screen.html` — but keep icon as fallback -->
-                    <button id="download-icon" aria-haspopup="dialog" aria-expanded="false" title="Download">⤓</button>
+                <!-- Download control moved to `chart-screen.html` — but keep icon as fallback -->
+                <button id="audio-icon" aria-label="Read chart aloud" title="Read Chart Aloud">🔊</button>
+                <button id="download-icon" aria-haspopup="dialog" aria-expanded="false" title="Download">⤓</button>
 
-                    <!-- Modal overlay for download options -->
-                    <div id="download-overlay" class="download-overlay" role="dialog" aria-hidden="true" aria-modal="true">
-                        <div class="download-panel" role="document">
-                            <button class="download-close" aria-label="Close">✕</button>
-                            <h3>Export Chart</h3>
-                            <div class="row">
-                                <label>Format</label>
-                                <select id="export-format">
-                                    <option value="png">PNG</option>
-                                    <option value="jpg">JPG</option>
-                                    <option value="svg">SVG</option>
-                                </select>
-                            </div>
-                            <div class="row">
-                                <label>Scale</label>
-                                <select id="export-scale">
-                                    <option value="1">1x</option>
-                                    <option value="0.75">0.75x</option>
-                                    <option value="0.5">0.5x</option>
-                                    <option value="0.25">0.25x</option>
-                                </select>
-                            </div>
-                            <!-- width/ background removed — exports are always transparent -->
-                            <div class="row actions">
-                                <button id="export-download">Download</button>
-                            </div>
+                <!-- Modal overlay for download options -->
+                <div id="download-overlay" class="download-overlay" role="dialog" aria-hidden="true" aria-modal="true">
+                    <div class="download-panel" role="document">
+                        <button class="download-close" aria-label="Close">✕</button>
+                        <h3>Export Chart</h3>
+                        <div class="row">
+                            <label>Format</label>
+                            <select id="export-format">
+                                <option value="png">PNG</option>
+                                <option value="jpg">JPG</option>
+                                <option value="svg">SVG</option>
+                            </select>
+                        </div>
+                        <div class="row">
+                            <label>Scale</label>
+                            <select id="export-scale">
+                                <option value="1">1x</option>
+                                <option value="0.75">0.75x</option>
+                                <option value="0.5">0.5x</option>
+                                <option value="0.25">0.25x</option>
+                            </select>
+                        </div>
+                        <!-- width/ background removed — exports are always transparent -->
+                        <div class="row actions">
+                            <button id="export-download">Download</button>
                         </div>
                     </div>
-            <!-- Replaced with a clearer screen include — the file `src/components/screen/chart-screen.html` contains the markup. -->
-            <div id="pie-chart">
-                <!-- Pie chart will be displayed here -->
+                </div>
+                <!-- Replaced with a clearer screen include — the file `src/components/screen/chart-screen.html` contains the markup. -->
+                <div id="pie-chart">
+                    <!-- Pie chart will be displayed here -->
                     <canvas id="pie-canvas" width="300" height="300" aria-label="Pie chart canvas"></canvas>
                     <div id="pie-tooltip" role="status" aria-live="polite" style="display:none;"></div>
-            </div>
+                </div>
             </div>
         </main>
     </div>
 </body>
-    <script type="module" src="src/components/chart/pieChart.js"></script>
+<script src="src/app.js"></script>
+
 </html>
